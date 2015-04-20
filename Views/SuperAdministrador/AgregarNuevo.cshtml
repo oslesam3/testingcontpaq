@@ -1,0 +1,125 @@
+﻿@model ContpaqiApi.Models.Administradores
+
+@{
+    ViewBag.Title = "AgregarNuevo";
+}
+
+<div class="container marco" style="padding-bottom:20px;">
+    <div class="row" style= "margin-bottom:10px;">
+        <div class="col-sm-7 col-md-8 col-lg-9 font-color-blue" style="padding-bottom:20px;">
+            <h4 style="font-family:Gotham-Medium;">Nuevo Administrador</h4>
+        </div>
+
+        <section id="NuevoAdminForm">
+            
+    @using (Html.BeginForm("AgregarNuevo", "SuperAdministrador", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <div class="col-md-6">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control", @placeholder = "Nombre" })
+                    @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.TextBoxFor(m => m.Apellido, new { @class = "form-control", @placeholder = "Apellido" })
+                    @Html.ValidationMessageFor(m => m.Apellido, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.DropDownListFor(m => m.Departamento, (IEnumerable<SelectListItem>)ViewBag.depos, new { @class = "form-control", @placeholder = "Departamento" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Correo Electronico" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.TextBoxFor(m => m.Usuario, new { @class = "form-control", @placeholder = "Nombre de usuario" })
+                    @Html.ValidationMessageFor(m => m.Usuario, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Contraseña" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirmar contraseña" })
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                    <div class="col-md-1">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Bloqueado, new { htmlAttributes = new { } })
+                            @Html.ValidationMessageFor(model => model.Bloqueado, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    @Html.Label("Bloquear", new { @class = "control-label col-md-1" })
+            </div>
+            <div class="form-group">
+                <div class="col-md-1">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.CargarReportes, new { htmlAttributes = new { } })
+                        @Html.ValidationMessageFor(model => model.CargarReportes, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                @Html.Label("Cargar reportes", new { @class = "control-label col-md-4" })
+            </div>
+            <div class="form-group">
+                <div class="col-md-1">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.CrearAdmin, new { htmlAttributes = new { } })
+                        @Html.ValidationMessageFor(model => model.CrearAdmin, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                @Html.Label("Crear administradores", new { @class = "control-label col-md-5" })
+            </div>
+            <div class="form-group">
+                <div class="col-md-1">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.EnviarNotificaciones, new { htmlAttributes = new { } })
+                        @Html.ValidationMessageFor(model => model.EnviarNotificaciones, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                @Html.Label("Enviar notificaciones", new { @class = "control-label col-md-5" })
+            </div>
+            <div class="form-group">
+                <div class="col-md-1">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Permisos)
+                        @Html.ValidationMessageFor(model => model.Permisos, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                @Html.Label("Permisos", new { @class = "control-label col-md-1"})
+            </div>
+            <div class="form-group">
+                <div class="col-md-10" style="margin-top:85px;">
+                    <input type="submit" value="Guardar" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+</section>
+
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

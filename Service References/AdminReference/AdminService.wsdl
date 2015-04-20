@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AdminService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:64375/AdminService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:64375/AdminService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:64375/AdminService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFContpaq" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAdminService_LoginAdministradores_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginAdministradores" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_LoginAdministradores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginAdministradoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_MostrarAdministradores_InputMessage">
+    <wsdl:part name="parameters" element="tns:MostrarAdministradores" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_MostrarAdministradores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MostrarAdministradoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_VerificarAdministrador_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerificarAdministrador" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_VerificarAdministrador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerificarAdministradorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_AgregarNuevo_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarNuevo" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_AgregarNuevo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarNuevoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_BuscarAdministrador_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarAdministrador" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_BuscarAdministrador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarAdministradorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_EditarAdministrador_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarAdministrador" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_EditarAdministrador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarAdministradorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_EliminarAdministrador_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarAdministrador" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_EliminarAdministrador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarAdministradorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_MostrarDeptos_InputMessage">
+    <wsdl:part name="parameters" element="tns:MostrarDeptos" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_MostrarDeptos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MostrarDeptosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_AgregarDepartamento_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarDepartamento" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_AgregarDepartamento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarDepartamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_EliminarDepartamento_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarDepartamento" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_EliminarDepartamento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarDepartamentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_BloquearAdministrador_InputMessage">
+    <wsdl:part name="parameters" element="tns:BloquearAdministrador" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_BloquearAdministrador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BloquearAdministradorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAdminService">
+    <wsdl:operation name="LoginAdministradores">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/LoginAdministradores" message="tns:IAdminService_LoginAdministradores_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/LoginAdministradoresResponse" message="tns:IAdminService_LoginAdministradores_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MostrarAdministradores">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/MostrarAdministradores" message="tns:IAdminService_MostrarAdministradores_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/MostrarAdministradoresResponse" message="tns:IAdminService_MostrarAdministradores_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarAdministrador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/VerificarAdministrador" message="tns:IAdminService_VerificarAdministrador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/VerificarAdministradorResponse" message="tns:IAdminService_VerificarAdministrador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarNuevo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/AgregarNuevo" message="tns:IAdminService_AgregarNuevo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/AgregarNuevoResponse" message="tns:IAdminService_AgregarNuevo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarAdministrador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/BuscarAdministrador" message="tns:IAdminService_BuscarAdministrador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/BuscarAdministradorResponse" message="tns:IAdminService_BuscarAdministrador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarAdministrador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/EditarAdministrador" message="tns:IAdminService_EditarAdministrador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/EditarAdministradorResponse" message="tns:IAdminService_EditarAdministrador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAdministrador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/EliminarAdministrador" message="tns:IAdminService_EliminarAdministrador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/EliminarAdministradorResponse" message="tns:IAdminService_EliminarAdministrador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MostrarDeptos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/MostrarDeptos" message="tns:IAdminService_MostrarDeptos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/MostrarDeptosResponse" message="tns:IAdminService_MostrarDeptos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarDepartamento">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/AgregarDepartamento" message="tns:IAdminService_AgregarDepartamento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/AgregarDepartamentoResponse" message="tns:IAdminService_AgregarDepartamento_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarDepartamento">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/EliminarDepartamento" message="tns:IAdminService_EliminarDepartamento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/EliminarDepartamentoResponse" message="tns:IAdminService_EliminarDepartamento_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BloquearAdministrador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/BloquearAdministrador" message="tns:IAdminService_BloquearAdministrador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/BloquearAdministradorResponse" message="tns:IAdminService_BloquearAdministrador_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAdminService" type="tns:IAdminService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoginAdministradores">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/LoginAdministradores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MostrarAdministradores">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/MostrarAdministradores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarAdministrador">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/VerificarAdministrador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarNuevo">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/AgregarNuevo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarAdministrador">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/BuscarAdministrador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarAdministrador">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/EditarAdministrador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarAdministrador">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/EliminarAdministrador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MostrarDeptos">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/MostrarDeptos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarDepartamento">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/AgregarDepartamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarDepartamento">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/EliminarDepartamento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BloquearAdministrador">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/BloquearAdministrador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AdminService">
+    <wsdl:port name="BasicHttpBinding_IAdminService" binding="tns:BasicHttpBinding_IAdminService">
+      <soap:address location="http://localhost:64375/AdminService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

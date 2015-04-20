@@ -1,0 +1,32 @@
+﻿@model ContpaqiApi.Models.Administradores
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="container marco" style="padding-bottom:10%;">
+@using (Html.BeginForm("Login", "Acceso", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { style = "padding-top:100px;", @class = "form-signin", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+        <h5 class="form-signin" style="margin-left:25.5%">Inicio de sesión</h5>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger"})
+        @Html.TextBoxFor(m => m.Usuario, new { style = "margin-bottom:20px;", @class = "form-control" , @placeholder = "Usuario" })
+        @Html.ValidationMessageFor(m => m.Usuario, "", new { @class = "text-danger" })
+
+        @Html.PasswordFor(m => m.Password, new { style = "margin-bottom:20px;", @class = "form-control", @placeholder = "Contraseña" })
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        <input type="submit" value="Entrar" class="btn btn-primary btm-login" />
+}
+
+        
+        @*<div class="col-md-4">
+                <section id="socialLoginForm">
+                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                </section>
+            </div>*@
+    
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+</div>
